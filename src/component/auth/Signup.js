@@ -24,7 +24,7 @@ const Signup = () => {
 
   const registerSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email);
+   
     const numericValue = contact.replace(/\D/g, "");
     if (!name || !email || !contact || !password || !confirmPassword) {
       toast({
@@ -63,9 +63,6 @@ const Signup = () => {
       formData.set("contact", contact);
       formData.set("password", password);
 
-      formData.forEach((item) => {
-        console.log(item);
-      });
       await dispatch(RegisterUser(formData));
       navigate('/login');
     
@@ -141,7 +138,7 @@ const Signup = () => {
             colorScheme="teal"
             variant="outline"
           >
-            Button
+            Signup
           </Button>
         </Center>
       </FormControl>

@@ -18,7 +18,7 @@ const AllCampaign = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState();
   const { campaign } = useSelector((state) => state.view);
-  console.log(campaign);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

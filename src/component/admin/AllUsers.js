@@ -20,7 +20,7 @@ const AllUsers = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState();
   const { users } = useSelector((state) => state.users);
-  console.log(users);
+
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10; // Number of items per page

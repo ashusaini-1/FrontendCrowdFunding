@@ -40,14 +40,14 @@ function App() {
   if (user && user._id) {
     adminID = user.role;
   } else {
-    console.log("User or _id is not available yet.");
+   // console.log("");
   }
-  console.log(adminID);
+ 
   useEffect(() => {
     dispatch(loadUser());
   }, [dispatch]);
   window.addEventListener("contextmenu", (e) => e.preventDefault());
-  const isAdminSection = window.location.pathname.startsWith("/admin");
+
   return (
     <Router>
       <Navbar />

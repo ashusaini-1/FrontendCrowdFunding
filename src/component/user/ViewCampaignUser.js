@@ -21,7 +21,7 @@ const ViewCampaignUser = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState();
   const { loading,campaign } = useSelector((state) => state.view);
-  console.log(campaign);
+
 
   useEffect(() => {
     const fetchData = async () => {

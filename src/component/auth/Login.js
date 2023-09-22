@@ -116,7 +116,7 @@ const Login = () => {
             colorScheme="teal"
             variant="outline"
           >
-            Button
+            Login
           </Button>
         </Center>
       </FormControl>

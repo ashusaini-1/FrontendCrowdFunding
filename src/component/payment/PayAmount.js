@@ -19,7 +19,7 @@ const PayAmount = () => {
       amount: parseInt(amount), // Ensure 'amount' is a number
     });
 
-    console.log(key, order);
+   
 
     const options = {
       key,

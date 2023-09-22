@@ -16,10 +16,10 @@ const AddComment = ({id}) => {
       formData.set("comment", comment);
       formData.set("campaignId",id)
 
-      console.log(comment);
+     
       await dispatch(CreateComment(formData));
       setComment("");
-      // console.log(AddContact(formData));
+      
       toast({
         title: "Comment Submitted Successfully",
         status: "success",

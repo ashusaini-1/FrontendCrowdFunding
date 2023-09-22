@@ -35,7 +35,7 @@ const UpdateCampaign = () => {
   const categoryOptions = ["Arts", "Technology", "Charity"];
 
   const { campaign } = useSelector((state) => state.detail);
-  // console.log(campaign.title);
+
   const HandleUpdateCampaign = async (e) => {
     e.preventDefault();
     if (!title || !category || !date || !description || !fundingGoal) {

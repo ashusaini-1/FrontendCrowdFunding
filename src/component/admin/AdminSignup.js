@@ -24,7 +24,7 @@ const AdminSignup = () => {
 
   const registerSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email);
+   
     const numericValue = contact.replace(/\D/g, "");
     if (!name || !email || !contact || !password || !confirmPassword) {
       toast({
@@ -63,9 +63,7 @@ const AdminSignup = () => {
       formData.set("contact", contact);
       formData.set("password", password);
 
-      formData.forEach((item) => {
-        console.log(item);
-      });
+
       await dispatch(RegisterUser(formData));
       navigate('/login');
     

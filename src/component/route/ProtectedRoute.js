@@ -20,7 +20,7 @@ const PrivateRoute = ({ isAdminId, isAdmin, isUser, children, redirectPath = '/l
     return <Navigate to={redirectPath} replace />;
   }
 
-console.log(isAdminId);
+
    
   if (isAdmin === true && isAdminId !== "admin") {
     return <Navigate to="/" />;
