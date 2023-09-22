@@ -133,45 +133,9 @@ const Navbar=()=> {
             onClick={isOpen ? onClose : onOpen}
           />
           {isOpen ? (
-            <Box pb={4} display={{ md: "none" }}>
+            <Box marginTop="21rem" pb={4} display={{ md: "none" }}>
               <Stack as={"nav"} spacing={4}>
-                <Button
-                  onClick={isOpen ? onClose : onOpen}
-                  _hover={{
-                    textShadow: "#FC0 1px 0 10px",
-                    transform: "scale(1.2)",
-                  }}
-                >
-                  <Link to="#Home">
-                    {" "}
-                    <b>Home</b>
-                  </Link>
-                </Button>
-                <Button
-                  onClick={isOpen ? onClose : onOpen}
-                  _hover={{
-                    textShadow: "#FC0 1px 0 10px",
-                    transform: "scale(1.2)",
-                  }}
-                >
-                  <Link to="#Home">
-                    {" "}
-                    <b>Home</b>
-                  </Link>
-                </Button>
-
-                <Button
-                  onClick={isOpen ? onClose : onOpen}
-                  _hover={{
-                    textShadow: "#FC0 1px 0 10px",
-                    transform: "scale(1.2)",
-                  }}
-                >
-                  <Link to="#Home">
-                    {" "}
-                    <b>Home</b>
-                  </Link>
-                </Button>
+                
                 <Button
                   onClick={isOpen ? onClose : onOpen}
                   _hover={{
