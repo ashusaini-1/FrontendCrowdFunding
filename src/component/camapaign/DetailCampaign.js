@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SingleCampaign } from "../../action/campaignAction";
 import AddComment from "../comment/AddComment";
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const DetailCampaign = () => {

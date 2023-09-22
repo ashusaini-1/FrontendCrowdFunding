@@ -52,7 +52,7 @@ const RegisterCampaign = () => {
       formData.set("fundingGoal", fundingGoal);
       formData.set("pic",pic)
       await dispatch(RegisterCampaignes(formData));
-      // await dispatch(SendMessages());
+       await dispatch(SendMessages());
       toast({
         title: "Registered Successful",
         status: "success",

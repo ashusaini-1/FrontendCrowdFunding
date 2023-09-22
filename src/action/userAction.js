@@ -16,6 +16,8 @@ import {
 } from "../constant/userConstant";
 import axios from "axios";
 
+const backendApi="https://crowdfunding-hii5.onrender.com"
+
 export const RegisterUser = (userData) => async (dispatch) => {
   try {
     dispatch({ type: SIGNUP_REQUEST });
@@ -26,7 +28,7 @@ export const RegisterUser = (userData) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post("/api/v1/signup", userData, config);
+    const { data } = await axios.post(`${backendApi}/api/v1/signup`, userData, config);
 
     dispatch({ type: SIGNUP_SUCCESS, payload: data.user });
   } catch (error) {
@@ -44,7 +46,7 @@ export const LoginUser = (userData) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post("/api/v1/login", userData, config);
+    const { data } = await axios.post(`${backendApi}/api/v1/login`, userData, config);
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
@@ -57,7 +59,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/me`);
+    const { data } = await axios.get(`${backendApi}/api/v1/me`);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -68,7 +70,7 @@ export const loadUser = () => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get(`/api/v1/logout`);
+    await axios.get(`${backendApi}/api/v1/logout`);
 
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
@@ -84,7 +86,7 @@ export const AllUser = (name="") => async (dispatch) => {
     dispatch({ type: ALL_USER_REQUEST });
 
     // Include the 'page' parameter in the URL
-    const { data } = await axios.get(`/api/v1/admin/users?name=${name}`);
+    const { data } = await axios.get(`${backendApi}/api/v1/admin/users?name=${name}`);
    
     dispatch({ type: ALL_USER_SUCCESS, payload: data.users });
   } catch (error) {

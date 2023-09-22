@@ -6,15 +6,16 @@ const PayAmount = () => {
   const [amount, setAmount] = useState(""); // Initialize with an empty string
 
   const checkoutHandler = async (amount) => {
+    const backendApi="https://crowdfunding-hii5.onrender.com"
     if (!amount || isNaN(amount)) {
       // Add input validation to ensure a valid amount is provided
       alert("Please enter a valid amount.");
       return;
     }
 
-    const { data: { key } } = await axios.get("/api/v1/getkey");
+    const { data: { key } } = await axios.get(`${backendApi}/api/v1/getkey`);
 
-    const { data: { order } } = await axios.post("/api/v1/checkout", {
+    const { data: { order } } = await axios.post(`${backendApi}/api/v1/checkout`, {
       amount: parseInt(amount), // Ensure 'amount' is a number
     });
 
@@ -28,7 +29,7 @@ const PayAmount = () => {
       description: "Tutorial of RazorPay",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGHK0AEqu1aNdGGlQMdPFh9WMOwg58U1WK5w&usqp=CAU",
       order_id: order.id,
-      callback_url: "http://localhost:4000/api/v1/paymentverification",
+      callback_url: `${backendApi}/api/v1/paymentverification`,
       prefill: {
         name: "Gaurav Kumar",
         email: "gaurav.kumar@example.com",

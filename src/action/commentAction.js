@@ -12,6 +12,7 @@ import {
 } from "../constant/commentConstant";
 import axios from "axios";
 
+const backendApi="https://crowdfunding-hii5.onrender.com"
 export const CreateComment = (comment) => async (dispatch) => {
  
   try {
@@ -23,7 +24,7 @@ export const CreateComment = (comment) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(`/api/v1/add/comment`, comment, config);
+    const { data } = await axios.post(`${backendApi}/api/v1/add/comment`, comment, config);
     
     dispatch({ type: ADD_COMMENT_SUCCESS, payload: data.userComment });
   } catch (error) {
@@ -36,7 +37,7 @@ export const ViewComment= (id) => async (dispatch) => {
   try {
     dispatch({ type: VIEW_COMMENT_REGISTER });
 
-    const { data } = await axios.get(`/api/v1/view/comment/${id}`);
+    const { data } = await axios.get(`${backendApi}/api/v1/view/comment/${id}`);
 
    
     dispatch({ type: VIEW_COMMENT_SUCCESS, payload: data.comments });
@@ -57,7 +58,7 @@ export const ReplyComment = (ids) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post('/api/v1/comment/reply', ids, config);
+    const { data } = await axios.post(`${backendApi}/api/v1/comment/reply`, ids, config);
    
     dispatch({ type: REPLY_COMMENT_SUCCESS, payload: data.userComment });
   } catch (error) {

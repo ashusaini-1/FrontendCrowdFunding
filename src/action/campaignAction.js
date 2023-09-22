@@ -20,6 +20,8 @@ import {
 
 import axios from "axios";
 
+
+const backendApi="https://crowdfunding-hii5.onrender.com"
 export const RegisterCampaignes = (campaignData) => async (dispatch) => {
  
   try {
@@ -30,7 +32,7 @@ export const RegisterCampaignes = (campaignData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/api/v1/register/campaign",
+      `${backendApi}/api/v1/register/campaign`,
       campaignData,
       config
     );
@@ -55,7 +57,7 @@ export const UpdateCampaignes = (id, campaignData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/v1/update/campaign/${id}`,
+      `${backendApi}/api/v1/update/campaign/${id}`,
       campaignData,
       config
     );
@@ -79,7 +81,7 @@ export const SingleCampaign = (id) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.get(`/api/v1/campaign/detail/${id}`, config);
+    const { data } = await axios.get(`${backendApi}/api/v1/campaign/detail/${id}`, config);
  
     dispatch({ type: SINGLE_CAMPAIGN_SUCCESS, payload: data.campaign });
   } catch (error) {
@@ -93,7 +95,7 @@ export const SingleCampaign = (id) => async (dispatch) => {
 export const ViewCampaignes = (title="") => async (dispatch) => {
   try {
     dispatch({ type: VIEW_CAMPAIGN_REQUEST });
-    const { data } = await axios.get(`/api/v1/view/campaign?title=${title}`);
+    const { data } = await axios.get(`${backendApi}/api/v1/view/campaign?title=${title}`);
 
     dispatch({ type: VIEW_CAMPAIGN_SUCCESS, payload: data.campaign });
   } catch (error) {
@@ -115,7 +117,7 @@ export const DeleteCampaign = (id) => async (dispatch) => {
     };
 
     const { data } = await axios.delete(
-      `/api/v1/delete/campaign/${id}`,
+      `${backendApi}/api/v1/delete/campaign/${id}`,
       config
     );
     dispatch({ type: DELETE_CAMPAIGN_SUCCESS, payload: data.user });
@@ -136,7 +138,7 @@ export const SendMessages = () => async (dispatch) => {
 
    
     const { data } = await axios.post(
-      "/api/v1/send",
+      `${backendApi}/api/v1/send`,
     
     );
     
